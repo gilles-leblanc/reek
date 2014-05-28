@@ -132,6 +132,17 @@ end
 EOS
     src.should_not reek
   end
+
+  it 'issue 31' do
+    src = <<EOS
+def func
+  @other.a
+  @other.b
+  @another.c
+end
+EOS
+    src.should_reek
+  end
 end
 
 describe FeatureEnvy do
